@@ -4,7 +4,7 @@
 BUILD_DIR=$1
 
 if [ -f $BUILD_DIR/package.json ]; then
-    echo "mjml Deteced!"
+    echo "heroku-buildpack-run-mjml"
     exit 0
 fi
 
