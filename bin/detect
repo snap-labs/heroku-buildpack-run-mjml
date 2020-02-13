@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# bin/detect BUILD_DIR
+
+BUILD_DIR=$1
+
+if hash mjml 2>/dev/null; then
+    echo "mjml detected!"
+    exit 0
+fi
+
+echo "mjml not detected. Is the nodejs buildpack configured to run before this one?"
+exit 1
