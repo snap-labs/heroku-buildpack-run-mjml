@@ -3,10 +3,10 @@
 
 BUILD_DIR=$1
 
-if hash mjml 2>/dev/null; then
-    echo "mjml detected!"
-    exit 0
+if ! [ -x "$(command -v mjml)" ]; then
+	echo "mjml not detected. Is the nodejs buildpack configured to run before this one?"
+  exit 1
 fi
 
-echo "mjml not detected. Is the nodejs buildpack configured to run before this one?"
-exit 1
+echo "mjml detected!"
+exit 0
