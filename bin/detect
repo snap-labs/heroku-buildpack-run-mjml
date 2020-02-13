@@ -3,8 +3,8 @@
 
 BUILD_DIR=$1
 
-if hash mjml 2>/dev/null; then
-    echo "mjml detected!"
+if [ -f $BUILD_DIR/package.json ]; then
+    echo "mjml Deteced!"
     exit 0
 fi
 
