@@ -7,9 +7,9 @@ ENV_DIR=${3:-}
 
 BP_DIR=$(cd "$(dirname "${0:-}")"; cd ..; pwd)
 
-echo "Build Dir ${BUILD_DIR}"
-echo "BP_DIR ${BP_DIR}"
-echo "HOME ${HOME}"
+# echo "Build Dir ${BUILD_DIR}"
+# echo "BP_DIR ${BP_DIR}"
+# echo "HOME ${HOME}"
 
 # Setting environment variables for export
 echo "-----> Compiling mjml templates"
@@ -21,7 +21,7 @@ FILES=./snap_notifications/mjml/*.mjml
 for mjml_file in $FILES; do
     mjml_filename="${mjml_file##*/}"
     html_file=${mjml_filename%.*}.html
-    echo "processing $mjml_filename into $html_file"
+    echo "processing $mjml_file into ./snap_notifications/templates/from_mjml/$html_file"
     mjml "$mjml_file" --config.beautify -o "./snap_notifications/templates/from_mjml/$html_file"
 done
 
