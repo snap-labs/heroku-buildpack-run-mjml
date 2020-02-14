@@ -22,7 +22,9 @@ for mjml_file in $FILES; do
     mjml_filename="${mjml_file##*/}"
     html_file=${mjml_filename%.*}.html
     echo "processing $mjml_file into ./snap_notifications/templates/from_mjml/$html_file"
-    mjml "$mjml_file" --config.beautify -o "./snap_notifications/templates/from_mjml/$html_file"
+    mjml "$mjml_file" --config.beautify -o "./snap_notifications/templates/from_mjml/$html_file.tmp"
+	echo "{% load i18n %}" > "./snap_notifications/templates/from_mjml/$html_file"
+	cat "./snap_notifications/templates/from_mjml/${html_file}.tmp" >> "./snap_notifications/templates/from_mjml/$html_file"
 done
 
 echo "-----> Done"
